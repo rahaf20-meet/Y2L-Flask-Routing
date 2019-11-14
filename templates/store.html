@@ -4,8 +4,10 @@
 	<title>store</title>
 </head>
 <body>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
 <h1> my Store </h1>
-<a href = {{ url_for (homePage) }}> home </a>
+<a href = {{ url_for ('homePage') }}> home </a>
 
  <div class="card">
   <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%">
