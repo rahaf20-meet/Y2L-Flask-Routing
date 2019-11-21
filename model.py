@@ -9,3 +9,6 @@ class Product(Base):
 	pictureLink = Column(String)
 	description = Column(String)
 
+class Cart(Base):
+	__tablename__="productID"
+	id = Column(Integer, primary_key=True)
