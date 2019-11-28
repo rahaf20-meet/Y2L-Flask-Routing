@@ -13,7 +13,8 @@ def homePage():
 
 @app.route('/store')
 def store():
-	return render_template("store.html")
+	allproducts = query_all()
+	return render_template("store.html",allproducts=allproducts)
 
 @app.route('/cart')
 def cart():
@@ -28,3 +29,6 @@ def about():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+# addProduct("denim skirt", 15.78, "product2")
+# print(query_all())

@@ -22,11 +22,11 @@ def addProduct(name, price, description):
 	session.commit()
 
 
-def editProduct(id, name): #by id
+def editProduct(Id, name): #by id
 	session = createSession()
 	product_object = session.query(
        Student).filter_by(
-       id=id).first()
+       Id=Id).first()
 	product_object.price = price
 	product_object.pictureLink = pictureLink
 	session.commit()
@@ -34,7 +34,7 @@ def editProduct(id, name): #by id
 def deleteProduct(name):
 	session = createSession()
 	session.query(Product).filter_by(
-       id=id).delete()
+       Id=Id).delete()
 	session.commit()
 
 def query_all():
@@ -43,13 +43,13 @@ def query_all():
       Product).all()
 	return products
 
-def query_by_id(id):
+def query_by_id(Id):
 	session = createSession()
 	product = session.query(
        Product).filter_by(
-       id=id).first()
+       Id=Id).first()
 	return product
 
 
 
-
+print(query_all()) 
