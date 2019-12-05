@@ -1,6 +1,5 @@
 from model import Base, Product
 
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -17,9 +16,9 @@ def addProduct(name, price, description):
 		name= name ,
 		price=price ,
 		description=description)
-	session = createSession()
 	session.add(product_object)
 	session.commit()
+	session.close()
 
 
 def editProduct(Id, name): #by id
@@ -34,13 +33,14 @@ def editProduct(Id, name): #by id
 def deleteProduct(name):
 	session = createSession()
 	session.query(Product).filter_by(
-       Id=Id).delete()
+       name=name).delete()
 	session.commit()
 
 def query_all():
 	session = createSession()
 	products = session.query(
       Product).all()
+	session.close()
 	return products
 
 def query_by_id(Id):
@@ -52,4 +52,6 @@ def query_by_id(Id):
 
 
 
-print(query_all()) 
+# addProduct("wafers", 7, "made with love")
+#deleteProduct("chocolate donuts")
+print(len(query_all())) 
